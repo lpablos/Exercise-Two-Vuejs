@@ -1,0 +1,41 @@
+<script src="https://npmcdn.com/vue/dist/vue.js"></script>
+
+<div id="exercise">
+  <!-- 1) Show an alert when the Button gets clicked -->
+  <div>
+    <button v-on:click="checking">Show Alert</button>
+  </div>
+  <p></p>
+  <!-- 2) Listen to the "keydown" event and store the value in a data property (hint: event.target.value gives you the value) -->
+  <div>
+    <input type="text" v-on:keyup="information($event)" v-model:value="write" />
+    <p>{{ write }}</p>
+  </div>
+  <!-- 3) Adjust the example from 2) to only fire if the "key down" is the ENTER key -->
+  <div>
+    <input type="text" v-on:keyup.enter="infenter($event)" />
+    <p>{{ enterr }}</p>
+  </div>
+</div>
+
+<script>
+  new Vue({
+    el: "#exercise",
+    data: {
+      write: "write here and show information",
+      value: "Click since button",
+      enterr: "Inset text and push enter"
+    },
+    methods: {
+      checking: function() {
+        alert("Hola mundo");
+      },
+      information: function($event) {
+        this.write = $event.target.value;
+      },
+      infenter: function($event) {
+        this.enterr = $event.target.value;
+      }
+    }
+  });
+</script>
